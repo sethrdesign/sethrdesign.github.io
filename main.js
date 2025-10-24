@@ -401,25 +401,30 @@ function onModelClick() {
     }
 }
 
+let clickCount = 0;
+let clickTimer = null;
+
 function onMouseClick(event) {
-    // ADD THIS: ignore clicks on the contact button
+    // Ignore clicks on the contact button
     if (event.target.closest('.contact-button')) return; // Let browser handle it
 
-    // existing double-click / carousel logic
+    // Prevent default to avoid any native double-click behavior
     event.preventDefault();
 
+    // Increment click count
     clickCount++;
-    
+
+    // Clear any existing timer
     if (clickTimer) clearTimeout(clickTimer);
 
     if (clickCount === 1) {
         clickTimer = setTimeout(() => {
-            // single click logic (if any)
+            // Single click logic (if any) would go here
             clickCount = 0;
             clickTimer = null;
-        }, 300);
+        }, 300); // 300ms delay to detect double-click
     } else {
-        // double click logic
+        // Double click
         clearTimeout(clickTimer);
         clickCount = 0;
         clickTimer = null;
@@ -430,36 +435,6 @@ function onMouseClick(event) {
     }
 }
 
-function onMouseClick(event) {
-    // Prevent default to avoid any native double-click behavior
-    event.preventDefault();
-    
-    // Clear any existing timer
-    if (clickTimer) {
-        clearTimeout(clickTimer);
-    }
-    
-    // Increment click count
-    clickCount++;
-    
-    // If this is the first click, set a timer
-    if (clickCount === 1) {
-        clickTimer = setTimeout(() => {
-            // Single click action (if any) would go here
-            clickCount = 0;
-            clickTimer = null;
-        }, 300); // 300ms delay to detect double-click
-    } else {
-        // This is a double-click
-        clearTimeout(clickTimer);
-        clickCount = 0;
-        clickTimer = null;
-        
-        // Only navigate if we have a hovered model
-        if (currentHoveredModel) {
-            onModelClick();
-        }
-    }
 }
 
 // Mouse move handler
