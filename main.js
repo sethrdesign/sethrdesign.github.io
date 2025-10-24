@@ -401,17 +401,34 @@ function onModelClick() {
     }
 }
 
-// Mouse click handler
 function onMouseClick(event) {
-    // Ignore clicks on the contact button
-    if (event.target.closest('.contact-button')) return;
+    // ADD THIS: ignore clicks on the contact button
+    if (event.target.closest('.contact-button')) return; // Let browser handle it
 
-    // Existing double-click / carousel logic
+    // existing double-click / carousel logic
     event.preventDefault();
-    // ... rest of your code ...
+
+    clickCount++;
+    
+    if (clickTimer) clearTimeout(clickTimer);
+
+    if (clickCount === 1) {
+        clickTimer = setTimeout(() => {
+            // single click logic (if any)
+            clickCount = 0;
+            clickTimer = null;
+        }, 300);
+    } else {
+        // double click logic
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        clickTimer = null;
+
+        if (currentHoveredModel) {
+            onModelClick();
+        }
+    }
 }
-let clickCount = 0;
-let clickTimer = null;
 
 function onMouseClick(event) {
     // Prevent default to avoid any native double-click behavior
