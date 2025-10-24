@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Seth Richardson</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Albert Sans', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 3vh;
+            left: 2vw;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #000000;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            margin-top: 0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0.75rem;
+            width: 100%;
+        }
+
+        .contact-item h2 {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .contact-item p, .contact-item a {
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #000000;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 80px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← BACK</a>
+    
+    <div class="container">
+        <h1>GET IN TOUCH</h1>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <h2>EMAIL</h2>
+                <a href="mailto:sethrichardson.work@gmail.com">sethrichardson.work@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <h2>LINKEDIN</h2>
+                <a href="https://www.linkedin.com/in/seth-richardson-3a8b69230/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

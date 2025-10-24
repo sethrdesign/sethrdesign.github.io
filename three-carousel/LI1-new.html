@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>LI1 - Seth Richardson Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Be+Vietnam+Pro:wght@400;600&family=Doto:wght@400&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        margin: 0;
+        padding: 0;
+        font-family: 'Albert Sans', sans-serif;
+        background: #ffffff;
+        color: #000000;
+        line-height: 1.8;
+        font-size: 18px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px 10px 40px;
+      }
+      
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 20px 0 30px;
+        min-height: 60px; /* Ensure consistent height */
+        width: 100%;
+      }
+      
+      .page-title {
+        margin: 0;
+        text-align: center;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 2.2em;
+        font-weight: 600;
+        color: #000;
+        line-height: 1.3;
+        width: 100%;
+      }
+      
+      .back-button {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #000;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 0.9em;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .back-button:hover {
+        background-color: #333;
+      }
+
+      .section {
+        display: flex;
+        min-height: 70vh;
+        align-items: center;
+        padding: 5px 0;
+        margin: 10px 0;
+      }
+      
+      .how-might-we {
+        margin: 0 0 15px 0;
+        padding: 0;
+      }
+      
+      .how-might-we h3 {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 1.5em;
+        font-weight: 600;
+        margin: 0 0 12px 0;
+        color: #000;
+      }
+      
+      .how-might-we p {
+        font-size: 1.1em;
+        margin: 0 0 15px 0;
+        line-height: 1.8;
+      }
+
+      .section.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .text-content {
+        flex: 0.8;
+        padding: 0 20px;
+        max-width: 40%;
+      }
+
+      .image-content {
+        flex: 1.2;
+        padding: 0 10px;
+        max-width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-content img {
+        max-width: 100%;
+        max-height: 80vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .full-width-section {
+        width: 100%;
+        margin: 40px 0;
+        text-align: center;
+      }
+      
+      .full-width-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 90vh;
+        object-fit: contain;
+      }
+      
+      .centered-text {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .video-container {
+        width: 100%;
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+      }
+
+      .video-wrapper iframe,
+      .video-wrapper wistia-player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      h1, h2, h3 {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-weight: 600;
+        color: #000;
+        margin: 0 0 15px 0;
+        line-height: 1.3;
+      }
+      
+      h1 {
+        font-size: 2.2em;
+      }
+      
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-size: 1.1em;
+        margin: 0 0 20px 0;
+        line-height: 1.8;
+        font-weight: 400;
+      }
+      
+      .text-content {
+        font-size: 1.1em;
+        line-height: 1.8;
+      }
+
+      @media (max-width: 900px) {
+        .text-content, .image-content {
+          max-width: 100%;
+          padding: 10px 20px;
+        }
+        .section, .section.reverse {
+          flex-direction: column;
+          padding: 10px 0;
+          min-height: auto;
+        }
+        
+        .text-content, .image-content {
+          padding: 15px;
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        .text-content {
+          order: 1;
+        }
+        
+        .image-content {
+          order: 2;
+          margin: 15px 0;
+          max-width: 100%;
+        }
+        
+        .image-content img {
+          max-height: 60vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-container">
+        <a href="index.html" class="back-button">Back</a>
+        <h1 class="page-title">LI-1</h1>
+      </div>
+      
+      <!-- Section 1 - LI11 with How Might We -->
+      <div class="section">
+        <div class="text-content">
+          <div class="how-might-we">
+            <h3>How Might We</h3>
+            <p>Craft an experimental instrument that encourages expressive performance while fitting the performer's body?</p>
+          </div>
+        </div>
+        <div class="image-content">
+          <img src="images/li11.png" alt="LI1 Overview">
+        </div>
+      </div>
+
+      <!-- Video Section -->
+      <div class="video-container">
+        <div class="video-wrapper">
+          <wistia-player media-id="e5t5acfcfo" aspect="1.7777777777777777" style="width: 100%; height: 100%;"></wistia-player>
+          <script src="https://fast.wistia.com/player.js" async></script>
+          <script src="https://fast.wistia.com/embed/e5t5acfcfo.js" async type="module"></script>
+        </div>
+      </div>
+      
+      <!-- Section 2 - LI12 with Experimentation -->
+      <div class="section">
+        <div class="image-content">
+          <img src="images/Li12.png" alt="LI1 Design Features">
+        </div>
+        <div class="text-content">
+          <h2>Experimentation</h2>
+          <p>I began by exploring the form and texture of the instrument. I wanted it to feel expressive and otherworldly, with an exterior that reflects the sounds it produces.</p>
+        </div>
+      </div>
+      
+      <!-- Section 3 - LI13 with Layout and Accordion Text -->
+      <div class="section">
+        <div class="text-content">
+          <h2>Layout</h2>
+          <p>Drawing inspiration from the key layout of an accordion, I developed a system where the keys flow together organically. I then named the instrument, Live Instrument One, or LI-1, to represent the way it can function like many instruments combined.</p>
+        </div>
+        <div class="image-content">
+          <img src="images/Li13.png" alt="LI1 Accordion-inspired Design">
+        </div>
+      </div>
+      
+      <!-- Section 4 - LI14 Full Width -->
+      <div class="full-width-section">
+        <img src="images/Li14.png" alt="LI1 Production" class="full-width-image">
+      </div>
+      
+      <!-- Section 5 - LI15 with Production Text -->
+      <div class="section">
+        <div class="image-content">
+          <img src="images/Li15.jpg" alt="LI1 Finish">
+        </div>
+        <div class="text-content">
+          <h2>Production</h2>
+          <p>After testing various methods, from vacuum forming to concrete pours, I chose to carve the body from high-density foam. This material works like wood, most cuts were made with a band saw, with the final shaping completed using rasps and sanding.</p>
+        </div>
+      </div>
+      
+      <!-- Section 6 - LI16 with Finish Text -->
+      <div class="section">
+        <div class="text-content">
+          <h2>Finish</h2>
+          <p>I replicated a successful trial by adding creases with wet plaster of Paris and applying a sandstone spray paint exterior, giving the instrument a tactile and visually striking finish.</p>
+        </div>
+        <div class="image-content">
+          <img src="images/LI16.png" alt="LI1">
+        </div>
+      </div>
+      
+      <!-- Section 7 - LI17 with Closing Text -->
+      <div class="section">
+        <div class="image-content">
+          <img src="images/LI17.png" alt="LI1">
+        </div>
+        <div class="text-content">
+          <p>Appreciate you taking the time to look through this project. You can find more of my work below.</p>
+        </div>
+      </div>
+      
+      <!-- Navigation Section -->
+      <div class="nav-section">
+        <p class="nav-section-title">View another project</p>
+        <div class="navigation-boxes">
+          <a href="Kid-Synth-new.html" class="nav-box">
+            <div class="nav-box-content">
+              <div class="nav-thumbnail">
+                <img src="images/kidsynth1.jpg" alt="Harmonics Unleashed">
+              </div>
+              <h3>Harmonics Unleashed</h3>
+            </div>
+          </a>
+          <a href="Shinkansen-new.html" class="nav-box">
+            <div class="nav-box-content">
+              <div class="nav-thumbnail">
+                <img src="images/shin1.png" alt="Shinkansen">
+              </div>
+              <h3>Shinkansen</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      .nav-section {
+        margin-top: 60px;
+        padding: 20px 0;
+      }
+      
+      .nav-section-title {
+        text-align: center;
+        font-size: 1.1em;
+        color: #666;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+      
+      .navigation-boxes {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .nav-box {
+        flex: 0 1 280px;
+        display: block;
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        text-decoration: none;
+        color: #000;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+      
+      .nav-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      
+      .nav-thumbnail {
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      
+      .nav-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-box:hover .nav-thumbnail img {
+        transform: scale(1.05);
+      }
+      
+      .nav-box h3 {
+        font-size: 1.1em;
+        margin: 12px 0 0 0;
+        color: #000;
+        font-weight: 500;
+      }
+      
+      .nav-box p {
+        color: #aaa;
+        margin: 5px 0 0 0;
+        font-size: 0.95em;
+      }
+      
+      
+      @media (max-width: 768px) {
+        .navigation-boxes {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </body>
+</html>

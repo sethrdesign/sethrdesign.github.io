@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Three.js Carousel</title>
+    <!-- Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Be+Vietnam+Pro:wght@400;600&family=Doto:wght@400&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        margin: 0; 
+        overflow: hidden;
+        cursor: default;
+        background: rgb(255, 255, 255); 
+        position: relative;
+      }
+      
+      /* Black pointer cursor for interactive elements */
+      body.pointer-cursor {
+        cursor: pointer;
+      }
+      
+      /* Make all text black */
+      body, a, button, input, textarea, select {
+        color: black;
+      }
+      canvas { 
+        display: block; 
+        position: relative;
+        z-index: 0;
+      }
+      .text-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+      }
+      .title-text {
+        position: absolute;
+        top: 2vh;
+        left: 2vw;  /* Moved from 3vw to 1.5vw */
+        text-align: left;
+        font-size: clamp(1.2rem, 4vw, 2rem);
+        font-weight: 600;
+        color: #000000;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        pointer-events: none;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        padding: 1vh 0;  /* Removed left padding since we're moving left */
+        white-space: nowrap;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .title-text {
+          font-size: 1.5rem;
+          letter-spacing: 0.08em;
+          top: 2vh;
+          left: 1vw;  /* Moved from 2vw to 1vw for mobile */
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .title-text {
+          font-size: 1.2rem;
+          letter-spacing: 0.05em;
+          top: 1.5vh;
+          left: 1vw;  /* Moved from 1.5vw to 1vw for mobile */
+          padding: 0.5vh 1vw;
+        }
+      }
+      /* Content section styles */
+      .content-section {
+        position: absolute;
+        top: 2.5vw; /* Position below title */
+        left: 2vw; /* Match title's left padding */
+        max-width: 400px;
+        z-index: 10;
+        pointer-events: none;
+        margin-top: 20px; /* Add some space between title and content */
+      }
+      
+      .content-text {
+        font-family: 'Albert Sans', sans-serif;
+        font-size: 1.1em;
+        line-height: 1.2;
+        color: #333;
+      }
+      
+      .content-text h2 {
+        font-size: 1.8em;
+        font-weight: 600;
+        margin-bottom: 0.8em;
+        color: #000;
+      }
+      
+      /* Adjust for smaller screens */
+      @media (max-width: 768px) {
+        .content-section {
+          max-width: 80%;
+          left: 2vw;
+          top: 12vh;
+        }
+        
+        .content-text {
+          font-size: 1em;
+        }
+        
+        .content-text h2 {
+          font-size: 1.5em;
+        }
+      }
+      
+      .contact-button {
+        position: fixed;
+        top: 3vh;
+        right: 2vw;
+        z-index: 100;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #000000;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-button:hover {
+        background-color: #000000;
+        color: #ffffff;
+      }
+
+      .desc-text {
+        position: fixed;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: 1em;
+        color: #000000;
+        font-family: 'Albert Sans', sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        pointer-events: none;
+        max-width: 800px;
+        width: 90%;
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <!-- Contact Button -->
+    <a href="contact.html" class="contact-button">CONTACT</a>
+    
+    <!-- Left-aligned content section -->
+    <div class="content-section">
+      <div class="content-text">
+        <p>Multidisciplinary designer based in Salt Lake City, creating interactive and expressive products ranging from instruments and tech to inflatables and soft goods, with a focus on dynamic, functional design.</p>
+      </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
