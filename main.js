@@ -401,40 +401,40 @@ function onModelClick() {
     }
 }
 
+// Mouse click handler
 let clickCount = 0;
 let clickTimer = null;
 
 function onMouseClick(event) {
-    // Ignore clicks on the contact button
-    if (event.target.closest('.contact-button')) return; // Let browser handle it
-
     // Prevent default to avoid any native double-click behavior
     event.preventDefault();
-
+    
+    // Clear any existing timer
+    if (clickTimer) {
+        clearTimeout(clickTimer);
+    }
+    
     // Increment click count
     clickCount++;
-
-    // Clear any existing timer
-    if (clickTimer) clearTimeout(clickTimer);
-
+    
+    // If this is the first click, set a timer
     if (clickCount === 1) {
         clickTimer = setTimeout(() => {
-            // Single click logic (if any) would go here
+            // Single click action (if any) would go here
             clickCount = 0;
             clickTimer = null;
         }, 300); // 300ms delay to detect double-click
     } else {
-        // Double click
+        // This is a double-click
         clearTimeout(clickTimer);
         clickCount = 0;
         clickTimer = null;
-
+        
+        // Only navigate if we have a hovered model
         if (currentHoveredModel) {
             onModelClick();
         }
     }
-}
-
 }
 
 // Mouse move handler
