@@ -402,6 +402,14 @@ function onModelClick() {
 }
 
 // Mouse click handler
+function onMouseClick(event) {
+    // Ignore clicks on the contact button
+    if (event.target.closest('.contact-button')) return;
+
+    // Existing double-click / carousel logic
+    event.preventDefault();
+    // ... rest of your code ...
+}
 let clickCount = 0;
 let clickTimer = null;
 
